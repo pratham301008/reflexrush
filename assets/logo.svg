@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60" width="280" height="60">
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f5a0" />
+      <stop offset="60%" stop-color="#00d9f5" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+    <filter id="logoGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  <!-- Icon -->
+  <rect x="4" y="6" width="48" height="48" rx="12" fill="#161b22" stroke="url(#logoGrad)" stroke-width="1.5" />
+  <path d="M31 12 L17 32 L28 32 L25 48 L39 28 L28 28 Z" fill="url(#logoGrad)" filter="url(#logoGlow)" />
+  
+  <!-- Text -->
+  <text x="64" y="38" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, sans-serif" font-size="28" font-weight="900" fill="#ffffff" letter-spacing="-0.5">REFLEX<tspan fill="url(#logoGrad)">RUSH</tspan></text>
+  <text x="66" y="51" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, sans-serif" font-size="9" font-weight="700" fill="#8b949e" letter-spacing="2.2">BEAT YOUR FRIENDS</text>
+</svg>

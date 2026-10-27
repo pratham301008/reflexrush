@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>ReflexRush - Think You Can Beat Your Friends? | Viral Reaction Game</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Test your raw human reflex speed in milliseconds. Play ReflexRush free online in your mobile or desktop browser, benchmark your speed against friends, and dare them to beat your score!">
+  <meta name="keywords" content="reaction time test, reflex game, beat your friends, reaction speed, browser game, mini games, human benchmark">
+  <meta name="author" content="ReflexRush">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://reflexrush.example.com/">
+
+  <!-- Open Graph / Facebook / WhatsApp -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://reflexrush.example.com/">
+  <meta property="og:title" content="ReflexRush - Think You Can Beat Your Friends?">
+  <meta property="og:description" content="I just tested my reaction time on ReflexRush. Test your millisecond speed and see if you can beat my score!">
+  <meta property="og:image" content="https://reflexrush.example.com/assets/og-image.svg">
+
+  <!-- Twitter / X Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ReflexRush - Can You Beat Your Friends?">
+  <meta name="twitter:description" content="High-precision human reaction time test. Challenge your friends to beat your millisecond score!">
+  <meta name="twitter:image" content="https://reflexrush.example.com/assets/og-image.svg">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Accessibility Skip Link -->
+  <a href="#mainContent" class="skip-link">Skip to game</a>
+
+  <!-- Challenge Alert Banner (Dynamically shown if invited by a friend) -->
+  <aside id="challengeBanner" class="challenge-banner" style="display: none;" aria-label="Friend Challenge">
+    <div class="challenge-content">
+      <span class="challenge-badge">Dare</span>
+      <span id="challengeMsg">Someone has challenged you!</span>
+      <button type="button" id="challengeCloseBtn" class="challenge-close" aria-label="Dismiss banner">&times;</button>
+    </div>
+  </aside>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="ReflexRush Home">
+        <img src="assets/logo.svg" alt="ReflexRush Logo" class="brand-logo" width="280" height="60">
+      </a>
+      
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="#gameSection" class="nav-link active">Play Game</a></li>
+          <li><a href="#howToPlay" class="nav-link">How To Play</a></li>
+          <li><a href="#upcomingGames" class="nav-link">More Games</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" id="soundToggleBtn" class="icon-btn" aria-label="Toggle Sound" title="Sound Effects">
+          🔊
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- TOP ADVERTISEMENT SLOT (Strictly Compliant with Google AdSense Policies) -->
+  <!-- 
+    AD PLACEMENT GUIDELINES:
+    1. Labeled clearly with "ADVERTISEMENT"
+    2. Separated by margins so users do not accidentally click
+    3. Never overlaps any game buttons
+    To activate real AdSense: Replace the inner placeholder with your Google AdSense <ins> tag.
+  -->
+  <div class="container ad-slot-wrapper">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-slot" id="topAdUnit">
+      <!-- GOOGLE ADSENSE CODE INSERTION POINT (Leaderboard: 728x90 desktop / 320x50 mobile) -->
+      <span>⚡ Sponsor &amp; Partner Space (728x90)</span>
+      <span class="ad-slot-subtext">Reserved for Google AdSense Display Ads</span>
+    </div>
+  </div>
+
+  <main id="mainContent">
+
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-pill">
+          <span>⚡ High-Precision Reaction Test</span>
+        </div>
+        <h1 class="hero-title">Think You Can <span class="text-gradient">Beat Your Friends?</span></h1>
+        <p class="hero-subtitle">
+          Test your raw visual reaction speed across 5 rounds. Avoid premature clicks, claim your reflex tier, and send a challenge link to prove you're the fastest in your friend group!
+        </p>
+
+        <!-- Quick Stats Display -->
+        <div class="quick-stats">
+          <div class="stat-pill">
+            <span>Personal Record:</span>
+            <strong id="heroBestScore">-- ms</strong>
+          </div>
+          <div class="stat-pill">
+            <span>Games Played:</span>
+            <strong id="heroTotalGames">0</strong>
+          </div>
+          <div class="stat-pill">
+            <span>Input:</span>
+            <span>Touch or Spacebar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE GAME SECTION -->
+    <section id="gameSection" class="game-section" aria-label="Reaction Time Game Arena">
+      <div class="container game-container">
+        
+        <!-- Round Progress Indicator -->
+        <div id="roundTracker" class="round-tracker" aria-label="Round progress indicator">
+          <!-- Populated by script.js -->
+        </div>
+
+        <!-- The Interactive Arena Card -->
+        <div id="gameArena" class="game-arena state-idle" tabindex="0" role="button" aria-label="Game arena. Click or press space to play.">
+          <div id="arenaIcon" class="arena-icon">⚡</div>
+          <h2 id="arenaTitle" class="arena-title">Beat Your Friends</h2>
+          <p id="arenaDesc" class="arena-desc">Test your raw human reflex speed across 5 rounds. Click or press Space to begin.</p>
+          
+          <div id="arenaActions" class="arena-actions">
+            <!-- Dynamic button inserted by JS -->
+          </div>
+
+          <!-- History of current session's rounds -->
+          <div id="historyChips" class="history-chips">
+            <!-- Dynamic round history chips -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- IN-CONTENT ADVERTISEMENT SLOT -->
+    <div class="container ad-slot-wrapper">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot" id="midAdUnit">
+        <!-- GOOGLE ADSENSE CODE INSERTION POINT (Medium Rectangle or Responsive Banner) -->
+        <span>🎮 Gaming Gear &amp; Recommended Sponsors</span>
+        <span class="ad-slot-subtext">Reserved for Google AdSense Display Ads</span>
+      </div>
+    </div>
+
+    <!-- HOW TO PLAY & HUMAN BENCHMARKS -->
+    <section id="howToPlay" class="info-section">
+      <div class="container">
+        <h2 class="section-title">How To Play &amp; Win</h2>
+        <p class="section-subtitle">A simple test of neural processing speed. Here is how you get the best score:</p>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-step-num">1</div>
+            <h3 class="card-title">Wait For Green</h3>
+            <p class="card-text">
+              Once you start, the arena turns bold red. Breathe, maintain focus, and watch the screen. Do <strong>not</strong> anticipate or click early, or you'll trigger a penalty!
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-step-num">2</div>
+            <h3 class="card-title">Tap As Fast As You Can</h3>
+            <p class="card-text">
+              The instant the screen snaps to emerald green, click, tap your mobile screen, or slam the Spacebar. We measure your reaction down to the exact millisecond using high-precision timers.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-step-num">3</div>
+            <h3 class="card-title">Challenge Your Friends</h3>
+            <p class="card-text">
+              Complete 5 rounds to unlock your final average rating. Use our 1-click challenge button to share your link on WhatsApp, Discord, or Instagram and dare anyone to beat it!
+            </p>
+          </div>
+        </div>
+
+        <!-- Scientific Benchmark Table -->
+        <div class="benchmark-table-wrapper">
+          <table class="benchmark-table" summary="Standard human reaction time benchmark tiers">
+            <thead>
+              <tr>
+                <th scope="col">Reaction Time</th>
+                <th scope="col">Reflex Tier</th>
+                <th scope="col">Estimated Human Percentile</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>&lt; 190 ms</strong></td>
+                <td>⚡ Godspeed Cyborg</td>
+                <td>Top 0.1% (Esports Pros, Fighter Pilots)</td>
+              </tr>
+              <tr>
+                <td><strong>190 – 229 ms</strong></td>
+                <td>🔥 Pro Gamer</td>
+                <td>Top 5% (Competitive Gamers, Athletes)</td>
+              </tr>
+              <tr>
+                <td><strong>230 – 274 ms</strong></td>
+                <td>⚡ Lightning Fast</td>
+                <td>Top 25% (Above Human Average)</td>
+              </tr>
+              <tr>
+                <td><strong>275 – 339 ms</strong></td>
+                <td>🎯 Human Average</td>
+                <td>Median 50% (Standard Normal Reflex)</td>
+              </tr>
+              <tr>
+                <td><strong>&gt; 340 ms</strong></td>
+                <td>☕ Needs More Coffee</td>
+                <td>Bottom 20% (Fatigued or Distracted)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- UPCOMING GAMES SHOWCASE -->
+    <section id="upcomingGames" class="games-showcase">
+      <div class="container">
+        <h2 class="section-title">More Fast-Paced Mini-Games</h2>
+        <p class="section-subtitle">
+          ReflexRush is expanding into a full arcade of brain and reflex challenges. Here is what is on the roadmap:
+        </p>
+
+        <div class="grid-3">
+          <div class="game-card active-game">
+            <span class="badge-status badge-live">Live Now</span>
+            <div class="game-card-icon">⚡</div>
+            <h3 class="card-title">Reaction Time</h3>
+            <p class="card-text">The viral 5-round reaction speed challenge. Compare your millisecond score against your friends.</p>
+            <a href="#gameSection" class="btn btn-secondary" style="margin-top: 1rem;">Play Now</a>
+          </div>
+
+          <div class="game-card">
+            <span class="badge-status badge-coming">In Development</span>
+            <div class="game-card-icon">🧠</div>
+            <h3 class="card-title">Number Memory</h3>
+            <p class="card-text">Remember an increasingly long sequence of digits. Most humans cap out at 7 digits—can you reach 12?</p>
+            <button type="button" class="btn btn-secondary" style="margin-top: 1rem; opacity: 0.6; cursor: not-allowed;" disabled>Coming Soon</button>
+          </div>
+
+          <div class="game-card">
+            <span class="badge-status badge-coming">In Development</span>
+            <div class="game-card-icon">🎨</div>
+            <h3 class="card-title">Color Stroop Clash</h3>
+            <p class="card-text">A high-speed cognitive Stroop-effect challenge. Match color names against confusing font colors under pressure.</p>
+            <button type="button" class="btn btn-secondary" style="margin-top: 1rem; opacity: 0.6; cursor: not-allowed;" disabled>Coming Soon</button>
+          </div>
+
+          <div class="game-card">
+            <span class="badge-status badge-coming">In Development</span>
+            <div class="game-card-icon">🔢</div>
+            <h3 class="card-title">Mental Math Blitz</h3>
+            <p class="card-text">Solve rapid 60-second arithmetic equations before the countdown reaches zero. Pure brain overclocking.</p>
+            <button type="button" class="btn btn-secondary" style="margin-top: 1rem; opacity: 0.6; cursor: not-allowed;" disabled>Coming Soon</button>
+          </div>
+
+          <div class="game-card">
+            <span class="badge-status badge-coming">In Development</span>
+            <div class="game-card-icon">🚀</div>
+            <h3 class="card-title">Obstacle Dodge</h3>
+            <p class="card-text">A 2D micro-dodge arcade game testing spatial reaction and keyboard/finger micro-adjustments.</p>
+            <button type="button" class="btn btn-secondary" style="margin-top: 1rem; opacity: 0.6; cursor: not-allowed;" disabled>Coming Soon</button>
+          </div>
+
+          <div class="game-card">
+            <span class="badge-status badge-coming">In Development</span>
+            <div class="game-card-icon">📅</div>
+            <h3 class="card-title">Daily Reflex Puzzle</h3>
+            <p class="card-text">One daily seeded reflex trial every 24 hours. Compete with everyone in the world on identical delays.</p>
+            <button type="button" class="btn btn-secondary" style="margin-top: 1rem; opacity: 0.6; cursor: not-allowed;" disabled>Coming Soon</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- VIRAL SHARE MODAL -->
+  <div id="shareModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalShareTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalShareTitle" class="modal-title">🔥 Dare Your Friends!</h3>
+        <button type="button" id="modalCloseBtn" class="modal-close" aria-label="Close dialog">&times;</button>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.95rem;">
+        Send this unique challenge link to your friends. When they open it, they will see your score and have to try to beat you!
+      </p>
+
+      <div class="share-url-box">
+        <input type="text" id="shareInput" class="share-input" readonly aria-label="Challenge URL">
+        <button type="button" id="copyShareBtn" class="btn btn-primary">Copy</button>
+      </div>
+
+      <div class="share-networks">
+        <a id="shareWhatsApp" class="share-net-btn" target="_blank" rel="noopener noreferrer">
+          <span>💬</span>
+          <span>WhatsApp</span>
+        </a>
+        <a id="shareX" class="share-net-btn" target="_blank" rel="noopener noreferrer">
+          <span>🐦</span>
+          <span>Twitter / X</span>
+        </a>
+        <a id="shareTelegram" class="share-net-btn" target="_blank" rel="noopener noreferrer">
+          <span>✈️</span>
+          <span>Telegram</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div id="toastNotice" class="toast-notice" role="status" aria-live="polite">
+    <span>✅</span>
+    <span id="toastMsg">Copied to clipboard!</span>
+  </div>
+
+  <!-- GDPR COOKIE CONSENT BANNER (Required for AdSense in EEA & California) -->
+  <aside id="cookieBanner" class="cookie-banner" aria-label="Cookie and Privacy Consent">
+    <div class="cookie-inner">
+      <p class="cookie-text">
+        We use local storage and privacy-friendly analytics/cookies to remember your personal best scores and deliver relevant content. By using ReflexRush, you agree to our <a href="privacy.html">Privacy Policy</a> and <a href="terms.html">Terms</a>.
+      </p>
+      <div class="cookie-actions">
+        <button type="button" id="acceptCookiesBtn" class="btn btn-primary" style="padding: 0.5rem 1.25rem;">Got it!</button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- SITE FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="assets/logo.svg" alt="ReflexRush" width="200" height="42" style="height: 34px; width: auto;">
+          <p class="footer-desc">
+            ReflexRush is a free web mini-game platform designed to benchmark human reaction time and ignite fun rivalries with your friends. Built for speed, mobile responsiveness, and clean gameplay.
+          </p>
+        </div>
+
+        <div class="footer-links-group">
+          <div>
+            <h4 class="footer-col-title">Arcade</h4>
+            <ul class="footer-nav">
+              <li><a href="#gameSection" class="footer-link">Reaction Time</a></li>
+              <li><a href="#howToPlay" class="footer-link">How To Play</a></li>
+              <li><a href="#upcomingGames" class="footer-link">Upcoming Games</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Company</h4>
+            <ul class="footer-nav">
+              <li><a href="about.html" class="footer-link">About Us</a></li>
+              <li><a href="contact.html" class="footer-link">Contact &amp; Feedback</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="footer-col-title">Legal &amp; Trust</h4>
+            <ul class="footer-nav">
+              <li><a href="privacy.html" class="footer-link">Privacy Policy</a></li>
+              <li><a href="terms.html" class="footer-link">Terms of Service</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2026 ReflexRush. All rights reserved. Free browser gaming for everyone.</p>
+        <p>Zero trackers &bull; 100% Client-Side Speed</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT -->
+  <script src="script.js"></script>
+</body>
+</html>
