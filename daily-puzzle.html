@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Daily Reflex Trial - Global Synchronized Reflex Challenge | ReflexRush</title>
+  
+  <meta name="description" content="One synchronized reflex benchmark every 24 hours. Compete with players worldwide on identical seeded delays, claim your daily ranking, and share your Wordle-style score grid!">
+  <meta name="keywords" content="daily reflex puzzle, daily reaction challenge, synchronized speed test, wordle reflex, reflexrush">
+  <meta name="author" content="ReflexRush">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://reflexrush.example.com/daily-puzzle.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://reflexrush.example.com/daily-puzzle.html">
+  <meta property="og:title" content="ReflexRush Daily Trial - Today's Global Challenge">
+  <meta property="og:description" content="One daily trial with identical seeded delays for every player in the world. What is your score today?">
+  <meta property="og:image" content="https://reflexrush.example.com/assets/og-image.svg">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a href="#mainContent" class="skip-link">Skip to game</a>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="ReflexRush Home">
+        <img src="assets/logo.svg" alt="ReflexRush Logo" class="brand-logo" width="280" height="60">
+      </a>
+      
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Reaction Time</a></li>
+          <li><a href="number-memory.html" class="nav-link">Number Memory</a></li>
+          <li><a href="color-stroop.html" class="nav-link">Color Stroop</a></li>
+          <li><a href="math-blitz.html" class="nav-link">Math Blitz</a></li>
+          <li><a href="obstacle-dodge.html" class="nav-link">Obstacle Dodge</a></li>
+          <li><a href="daily-puzzle.html" class="nav-link active">Daily Trial</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" id="soundToggleBtn" class="icon-btn" aria-label="Toggle Sound" title="Sound Effects">
+          🔊
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- TOP ADVERTISEMENT SLOT -->
+  <div class="container ad-slot-wrapper">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-slot">
+      <span>⚡ Sponsor &amp; Partner Space (728x90)</span>
+      <span class="ad-slot-subtext">Reserved for Google AdSense Display Ads</span>
+    </div>
+  </div>
+
+  <main id="mainContent">
+
+    <section class="hero-section">
+      <div class="container">
+        <div class="daily-date-badge" id="dailyDateBadge">
+          📅 Loading Today's Seed...
+        </div>
+        <h1 class="hero-title">Daily Reflex <span class="text-gradient">Trial</span></h1>
+        <p class="hero-subtitle">
+          Every player worldwide receives the exact same delay pattern today. Play your 5 official rounds once per day, claim your rank, and share your score card!
+        </p>
+
+        <div class="quick-stats">
+          <div class="stat-pill">
+            <span>Today's Status:</span>
+            <strong id="heroDailyStatus">Checking...</strong>
+          </div>
+          <div class="stat-pill">
+            <span>Seed:</span>
+            <span>Global UTC Synchronized</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME ARENA -->
+    <section class="game-section" aria-label="Daily Trial Arena">
+      <div class="container game-container">
+        
+        <div id="gameArena" class="game-arena state-idle" tabindex="0" role="button" aria-label="Daily game arena. Click or press space to play.">
+          <div id="arenaIcon" class="arena-icon">📅</div>
+          <h2 id="arenaTitle" class="arena-title">Daily Trial</h2>
+          <p id="arenaDesc" class="arena-desc">Compete with every player globally on today’s synchronized delays.</p>
+          
+          <div id="arenaActions" class="arena-actions">
+            <!-- Populated by daily-puzzle.js -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- IN-CONTENT ADVERTISEMENT SLOT -->
+    <div class="container ad-slot-wrapper">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot">
+        <span>🎮 Daily Challenges &amp; Recommended Sponsors</span>
+        <span class="ad-slot-subtext">Reserved for Google AdSense Display Ads</span>
+      </div>
+    </div>
+
+    <!-- HOW SYNCHRONIZED SEEDS WORK -->
+    <section class="info-section">
+      <div class="container">
+        <h2 class="section-title">How the Daily Trial Works</h2>
+        <p class="section-subtitle">A mathematically synchronized global speed competition.</p>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-step-num">1</div>
+            <h3 class="card-title">Seeded Randomness</h3>
+            <p class="card-text">
+              We convert today’s date string into a deterministic numeric seed. Every device across North America, Europe, Asia, and beyond generates the exact same delay lengths for Rounds 1 through 5.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-step-num">2</div>
+            <h3 class="card-title">One Official Run</h3>
+            <p class="card-text">
+              Just like Wordle, your first 5-round playthrough each day is recorded as your official daily average. After that, you can practice as much as you like until the UTC midnight reset.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-step-num">3</div>
+            <h3 class="card-title">Share Your Daily Grid</h3>
+            <p class="card-text">
+              Copy your daily result card with color-coded round chips to share in WhatsApp groups, on Twitter/X, or in Discord channels without spoiling the delays for others!
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="toastNotice" class="toast-notice" role="status" aria-live="polite">
+    <span>✅</span>
+    <span id="toastMsg">Copied to clipboard!</span>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border-top: none;">
+      <p>&copy; 2026 ReflexRush. All rights reserved.</p>
+      <p>
+        <a href="index.html" class="footer-link">Reaction Time</a> &bull;
+        <a href="number-memory.html" class="footer-link">Number Memory</a> &bull;
+        <a href="color-stroop.html" class="footer-link">Color Stroop</a> &bull;
+        <a href="math-blitz.html" class="footer-link">Math Blitz</a> &bull;
+        <a href="obstacle-dodge.html" class="footer-link">Obstacle Dodge</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="daily-puzzle.js"></script>
+</body>
+</html>

@@ -24,6 +24,26 @@
 - **Touch-Friendly On-Screen Keypad:** Virtual 0–9 keypad prevents the mobile virtual keyboard from obscuring the game.
 - **Educational Deep-Dive:** Explains **Miller’s Law (7 ± 2 items)** and cognitive "chunking" strategies.
 
+### 3. Color Stroop Clash (`color-stroop.html`)
+- **Cognitive Interference Test:** 20-round rapid clash based on the Stroop Effect.
+- **Neuroscience Traps:** Brain instinctively wants to read the text; player must match the ink font color under pressure.
+- **Dynamic Timer:** Reaction countdown speeds up as streaks increase.
+
+### 4. Mental Math Blitz (`math-blitz.html`)
+- **60-Second Arithmetic Sprint:** Solve continuous addition, subtraction, and multiplication equations.
+- **Combo Multipliers:** 3x, 6x, and 9x streak chains grant massive bonus scores.
+- **Multi-Input Controls:** Instant 4-option touch layout and physical keyboard 1–4 shortcuts.
+
+### 5. Obstacle Dodge (`obstacle-dodge.html`)
+- **60fps 2D Canvas Arcade:** Pilot a neon pulse ship through cascading laser barriers.
+- **Dynamic Physics & Particles:** Speed increases progressively with thruster particle trails.
+- **Multi-Touch & Keyboard Controls:** Arrow keys, A/D, drag-to-steer, or on-screen touch steering pads.
+
+### 6. Daily Reflex Trial (`daily-puzzle.html`)
+- **Synchronized Global Seed:** Mulberry32 PRNG ensures every player worldwide plays identical delays today.
+- **Daily Lockout & Practice Mode:** 1 official run recorded per calendar day (UTC reset).
+- **Wordle-Style Share Card:** Copyable color-coded emoji grid for instant sharing on Twitter/X, WhatsApp, and Reddit.
+
 ---
 
 ## 🚀 Features

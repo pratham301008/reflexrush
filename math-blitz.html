@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Mental Math Blitz - 60-Second Speed Arithmetic | ReflexRush</title>
+  
+  <meta name="description" content="Test your raw mental calculation speed. Solve as many rapid arithmetic equations as you can in 60 seconds with combo streaks. Free online brain training on ReflexRush!">
+  <meta name="keywords" content="mental math test, speed math, arithmetic sprint, math reflex, brain game, reflexrush">
+  <meta name="author" content="ReflexRush">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://reflexrush.example.com/math-blitz.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://reflexrush.example.com/math-blitz.html">
+  <meta property="og:title" content="Mental Math Blitz - How Many Equations Can You Solve in 60s?">
+  <meta property="og:description" content="Rapid-fire arithmetic sprint with combo multipliers. Can you solve 25+ equations in 60 seconds?">
+  <meta property="og:image" content="https://reflexrush.example.com/assets/og-image.svg">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a href="#mainContent" class="skip-link">Skip to game</a>
+
+  <!-- Challenge Alert Banner -->
+  <aside id="challengeBanner" class="challenge-banner" style="display: none;" aria-label="Friend Challenge">
+    <div class="challenge-content">
+      <span class="challenge-badge">Dare</span>
+      <span id="challengeMsg">Someone has challenged you!</span>
+      <button type="button" id="challengeCloseBtn" class="challenge-close" aria-label="Dismiss banner">&times;</button>
+    </div>
+  </aside>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="ReflexRush Home">
+        <img src="assets/logo.svg" alt="ReflexRush Logo" class="brand-logo" width="280" height="60">
+      </a>
+      
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Reaction Time</a></li>
+          <li><a href="number-memory.html" class="nav-link">Number Memory</a></li>
+          <li><a href="color-stroop.html" class="nav-link">Color Stroop</a></li>
+          <li><a href="math-blitz.html" class="nav-link active">Math Blitz</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" id="soundToggleBtn" class="icon-btn" aria-label="Toggle Sound" title="Sound Effects">
+          🔊
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- TOP ADVERTISEMENT SLOT -->
+  <div class="container ad-slot-wrapper">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-slot">
+      <span>⚡ Sponsor &amp; Partner Space (728x90)</span>
+      <span class="ad-slot-subtext">Reserved for Google AdSense Display Ads</span>
+    </div>
+  </div>
+
+  <main id="mainContent">
+
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-pill">
+          <span>🔢 Rapid Arithmetic Speed Trial</span>
+        </div>
+        <h1 class="hero-title">Mental Math <span class="text-gradient">Blitz</span></h1>
+        <p class="hero-subtitle">
+          60 seconds on the clock. Continuous arithmetic calculations. Chain correct answers together to trigger <strong>2x, 3x, and 4x combo multipliers!</strong>
+        </p>
+
+        <div class="quick-stats">
+          <div class="stat-pill">
+            <span>Personal Record:</span>
+            <strong id="heroBestSolved">--</strong>
+          </div>
+          <div class="stat-pill">
+            <span>Games Played:</span>
+            <strong id="heroTotalGames">0</strong>
+          </div>
+          <div class="stat-pill">
+            <span>Clock:</span>
+            <span>60 Seconds</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME ARENA -->
+    <section class="game-section" aria-label="Math Blitz Arena">
+      <div class="container game-container">
+        
+        <div id="gameArena" class="game-arena state-idle" tabindex="0" role="region" aria-label="Math blitz arena">
+          <div id="arenaIcon" class="arena-icon">🔢</div>
+          <h2 id="arenaTitle" class="arena-title">Mental Math Blitz</h2>
+          <p id="arenaDesc" class="arena-desc">Solve as many rapid math problems as you can in 60 seconds. Build combos for bonus points!</p>
+          
+          <div id="arenaActions" class="arena-actions">
+            <!-- Populated by math-blitz.js -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- IN-CONTENT ADVERTISEMENT SLOT -->
+    <div class="container ad-slot-wrapper">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot">
+        <span>🎮 STEM &amp; Educational Partners</span>
+        <span class="ad-slot-subtext">Reserved for Google AdSense Display Ads</span>
+      </div>
+    </div>
+
+    <!-- BENCHMARKS & COGNITIVE SPEED -->
+    <section class="info-section">
+      <div class="container">
+        <h2 class="section-title">Speed Arithmetic Benchmarks</h2>
+        <p class="section-subtitle">How many rapid calculations can a human brain perform under strict time pressure?</p>
+
+        <div class="benchmark-table-wrapper">
+          <table class="benchmark-table" summary="Mental math 60-second score tiers">
+            <thead>
+              <tr>
+                <th scope="col">Equations Solved (60s)</th>
+                <th scope="col">Math Reflex Tier</th>
+                <th scope="col">Cognitive Speed Rank</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>35+ Solved</strong></td>
+                <td>⚡ Human Calculator</td>
+                <td>Top 0.1% (Extreme Neural Processing)</td>
+              </tr>
+              <tr>
+                <td><strong>26 – 34 Solved</strong></td>
+                <td>🔥 Algebraic Beast</td>
+                <td>Top 5% (Esports / STEM Pros)</td>
+              </tr>
+              <tr>
+                <td><strong>18 – 25 Solved</strong></td>
+                <td>🎯 Quick Thinker</td>
+                <td>Top 25% (Above Human Average)</td>
+              </tr>
+              <tr>
+                <td><strong>11 – 17 Solved</strong></td>
+                <td>🧠 Solid Math Reflex</td>
+                <td>Median 50% (Standard Adult Rate)</td>
+              </tr>
+              <tr>
+                <td><strong>&lt; 11 Solved</strong></td>
+                <td>☕ Need Scratch Paper</td>
+                <td>Warming Up (Cognitive Rust)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- VIRAL SHARE MODAL -->
+  <div id="shareModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalShareTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalShareTitle" class="modal-title">🔢 Dare Your Friends!</h3>
+        <button type="button" id="modalCloseBtn" class="modal-close" aria-label="Close dialog">&times;</button>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.95rem;">
+        Dare your friends to beat your 60-second mental math calculation record!
+      </p>
+
+      <div class="share-url-box">
+        <input type="text" id="shareInput" class="share-input" readonly aria-label="Challenge URL">
+        <button type="button" id="copyShareBtn" class="btn btn-primary">Copy</button>
+      </div>
+
+      <div class="share-networks">
+        <a id="shareWhatsApp" class="share-net-btn" target="_blank" rel="noopener noreferrer">
+          <span>💬</span>
+          <span>WhatsApp</span>
+        </a>
+        <a id="shareX" class="share-net-btn" target="_blank" rel="noopener noreferrer">
+          <span>🐦</span>
+          <span>Twitter / X</span>
+        </a>
+        <a id="shareTelegram" class="share-net-btn" target="_blank" rel="noopener noreferrer">
+          <span>✈️</span>
+          <span>Telegram</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastNotice" class="toast-notice" role="status" aria-live="polite">
+    <span>✅</span>
+    <span id="toastMsg">Copied to clipboard!</span>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border-top: none;">
+      <p>&copy; 2026 ReflexRush. All rights reserved.</p>
+      <p>
+        <a href="index.html" class="footer-link">Reaction Time</a> &bull;
+        <a href="number-memory.html" class="footer-link">Number Memory</a> &bull;
+        <a href="color-stroop.html" class="footer-link">Color Stroop</a> &bull;
+        <a href="about.html" class="footer-link">About</a> &bull;
+        <a href="privacy.html" class="footer-link">Privacy</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="math-blitz.js"></script>
+</body>
+</html>

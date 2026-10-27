@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Obstacle Dodge - High-Speed Arcade Evasion | ReflexRush</title>
+  
+  <meta name="description" content="Dodge falling laser obstacles at blisteringly fast speeds. Test your hand-eye coordination and spatial reflexes in this 60fps arcade micro-game on ReflexRush!">
+  <meta name="keywords" content="dodge game, obstacle dodge, arcade reaction, laser evasion, hand eye coordination, reflexrush">
+  <meta name="author" content="ReflexRush">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://reflexrush.example.com/obstacle-dodge.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://reflexrush.example.com/obstacle-dodge.html">
+  <meta property="og:title" content="Obstacle Dodge - How Long Can You Survive?">
+  <meta property="og:description" content="Dodge relentless laser cascades. How many seconds can you survive before crashing?">
+  <meta property="og:image" content="https://reflexrush.example.com/assets/og-image.svg">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a href="#mainContent" class="skip-link">Skip to game</a>
+
+  <!-- Challenge Alert Banner -->
+  <aside id="challengeBanner" class="challenge-banner" style="display: none;" aria-label="Friend Challenge">
+    <div class="challenge-content">
+      <span class="challenge-badge">Dare</span>
+      <span id="challengeMsg">Someone has challenged you!</span>
+      <button type="button" id="challengeCloseBtn" class="challenge-close" aria-label="Dismiss banner">&times;</button>
+    </div>
+  </aside>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="ReflexRush Home">
+        <img src="assets/logo.svg" alt="ReflexRush Logo" class="brand-logo" width="280" height="60">
+      </a>
+      
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Reaction Time</a></li>
+          <li><a href="number-memory.html" class="nav-link">Number Memory</a></li>
+          <li><a href="color-stroop.html" class="nav-link">Color Stroop</a></li>
+          <li><a href="math-blitz.html" class="nav-link">Math Blitz</a></li>
+          <li><a href="obstacle-dodge.html" class="nav-link active">Obstacle Dodge</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" id="soundToggleBtn" class="icon-btn" aria-label="Toggle Sound" title="Sound Effects">
+          🔊
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- TOP ADVERTISEMENT SLOT -->
+  <div class="container ad-slot-wrapper">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-slot">
+      <span>⚡ Sponsor &amp; Partner Space (728x90)</span>
+      <span class="ad-slot-subtext">Reserved for Google AdSense Display Ads</span>
+    </div>
+  </div>
+
+  <main id="mainContent">
+
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-pill">
+          <span>🚀 Spatial Hand-Eye Evasion Trial</span>
+        </div>
+        <h1 class="hero-title">Obstacle <span class="text-gradient">Dodge</span></h1>
+        <p class="hero-subtitle">
+          Control your cyber pulse ship and weave through cascading neon lasers. The longer you survive, the faster they fall!
+        </p>
+
+        <div class="quick-stats">
+          <div class="stat-pill">
+            <span>Survival Record:</span>
+            <strong id="heroBestTime">--</strong>
+          </div>
+          <div class="stat-pill">
+            <span>Games Played:</span>
+            <strong id="heroTotalGames">0</strong>
+          </div>
+          <div class="stat-pill">
+            <span>Controls:</span>
+            <span>Arrow Keys, A/D, or Touch</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME ARENA -->
+    <section class="game-section" aria-label="Obstacle Dodge Arena">
+      <div class="container game-container" style="max-width: 520px;">
+        
+        <div class="canvas-wrapper">
+          <canvas id="dodgeCanvas"></canvas>
+          
+          <!-- Start Overlay -->
+          <div id="startOverlay" style="position: absolute; inset: 0; background: rgba(10, 13, 20, 0.85); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 1.5rem; text-align: center;">
+            <div style="font-size: 3rem; margin-bottom: 0.5rem;">🚀</div>
+            <h2 style="font-size: 1.8rem; font-weight: 800; margin-bottom: 0.5rem;">Ready to Dodge?</h2>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
+              Use Arrow keys / A &amp; D, drag with your finger, or use the on-screen touch buttons below.
+            </p>
+            <button type="button" class="btn btn-primary btn-lg" id="startDodgeBtn">
+              Launch Ship &rarr;
+            </button>
+          </div>
+
+          <!-- End Overlay -->
+          <div id="endOverlay" style="position: absolute; inset: 0; background: rgba(10, 13, 20, 0.92); display: none; padding: 1.5rem; overflow-y: auto;">
+            <!-- Populated dynamically on crash -->
+          </div>
+        </div>
+
+        <!-- Mobile Touch Controls -->
+        <div class="canvas-controls-overlay">
+          <button type="button" id="touchLeftBtn" class="dodge-touch-btn" aria-label="Move Left">&larr; Left</button>
+          <button type="button" id="touchRightBtn" class="dodge-touch-btn" aria-label="Move Right">Right &rarr;</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- IN-CONTENT ADVERTISEMENT SLOT -->
+    <div class="container ad-slot-wrapper">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot">
+        <span>🎮 Gaming Accessories &amp; Recommended Sponsors</span>
+        <span class="ad-slot-subtext">Reserved for Google AdSense Display Ads</span>
+      </div>
+    </div>
+
+    <!-- BENCHMARKS -->
+    <section class="info-section">
+      <div class="container">
+        <h2 class="section-title">Survival Benchmarks</h2>
+        <p class="section-subtitle">How does your spatial evasive endurance stack up?</p>
+
+        <div class="benchmark-table-wrapper">
+          <table class="benchmark-table" summary="Obstacle dodge survival tiers">
+            <thead>
+              <tr>
+                <th scope="col">Survival Time</th>
+                <th scope="col">Pilot Tier</th>
+                <th scope="col">Estimated Human Percentile</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>45.0s+</strong></td>
+                <td>⚡ Matrix Navigator</td>
+                <td>Top 0.1% (Inhuman Evasive Agility)</td>
+              </tr>
+              <tr>
+                <td><strong>30.0s – 44.9s</strong></td>
+                <td>🔥 Cyber Ace</td>
+                <td>Top 5% (Esports Dodger)</td>
+              </tr>
+              <tr>
+                <td><strong>20.0s – 29.9s</strong></td>
+                <td>🎯 Dexterous Dodger</td>
+                <td>Top 25% (Above Human Average)</td>
+              </tr>
+              <tr>
+                <td><strong>12.0s – 19.9s</strong></td>
+                <td>🐢 Casual Cruiser</td>
+                <td>Median 50% (Standard Arcade Reaction)</td>
+              </tr>
+              <tr>
+                <td><strong>&lt; 12.0s</strong></td>
+                <td>💥 Crash Test Dummy</td>
+                <td>Learning Phase (Slow Lane Prediction)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- VIRAL SHARE MODAL -->
+  <div id="shareModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalShareTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalShareTitle" class="modal-title">🚀 Dare Your Friends!</h3>
+        <button type="button" id="modalCloseBtn" class="modal-close" aria-label="Close dialog">&times;</button>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.95rem;">
+        Dare your friends to survive longer in the laser crossfire!
+      </p>
+
+      <div class="share-url-box">
+        <input type="text" id="shareInput" class="share-input" readonly aria-label="Challenge URL">
+        <button type="button" id="copyShareBtn" class="btn btn-primary">Copy</button>
+      </div>
+
+      <div class="share-networks">
+        <a id="shareWhatsApp" class="share-net-btn" target="_blank" rel="noopener noreferrer">
+          <span>💬</span>
+          <span>WhatsApp</span>
+        </a>
+        <a id="shareX" class="share-net-btn" target="_blank" rel="noopener noreferrer">
+          <span>🐦</span>
+          <span>Twitter / X</span>
+        </a>
+        <a id="shareTelegram" class="share-net-btn" target="_blank" rel="noopener noreferrer">
+          <span>✈️</span>
+          <span>Telegram</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastNotice" class="toast-notice" role="status" aria-live="polite">
+    <span>✅</span>
+    <span id="toastMsg">Copied to clipboard!</span>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border-top: none;">
+      <p>&copy; 2026 ReflexRush. All rights reserved.</p>
+      <p>
+        <a href="index.html" class="footer-link">Reaction Time</a> &bull;
+        <a href="number-memory.html" class="footer-link">Number Memory</a> &bull;
+        <a href="color-stroop.html" class="footer-link">Color Stroop</a> &bull;
+        <a href="math-blitz.html" class="footer-link">Math Blitz</a> &bull;
+        <a href="about.html" class="footer-link">About</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="obstacle-dodge.js"></script>
+</body>
+</html>

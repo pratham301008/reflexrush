@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Color Stroop Clash - Cognitive Reflex Challenge | ReflexRush</title>
+  
+  <meta name="description" content="Test your brain's cognitive inhibitory control. The Stroop effect tricks your brain by printing color names in conflicting ink colors. Play 20 fast rounds and challenge your friends!">
+  <meta name="keywords" content="stroop test, stroop effect game, color reaction, cognitive test, brain benchmark, reflexrush">
+  <meta name="author" content="ReflexRush">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://reflexrush.example.com/color-stroop.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://reflexrush.example.com/color-stroop.html">
+  <meta property="og:title" content="Color Stroop Clash - Can Your Brain Resist The Trap?">
+  <meta property="og:description" content="Match the ink color, not the word! Test your cognitive reaction time across 20 rounds on ReflexRush.">
+  <meta property="og:image" content="https://reflexrush.example.com/assets/og-image.svg">
+
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <a href="#mainContent" class="skip-link">Skip to game</a>
+
+  <!-- Challenge Alert Banner -->
+  <aside id="challengeBanner" class="challenge-banner" style="display: none;" aria-label="Friend Challenge">
+    <div class="challenge-content">
+      <span class="challenge-badge">Dare</span>
+      <span id="challengeMsg">Someone has challenged you!</span>
+      <button type="button" id="challengeCloseBtn" class="challenge-close" aria-label="Dismiss banner">&times;</button>
+    </div>
+  </aside>
+
+  <!-- Site Navigation Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-link" aria-label="ReflexRush Home">
+        <img src="assets/logo.svg" alt="ReflexRush Logo" class="brand-logo" width="280" height="60">
+      </a>
+      
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Reaction Time</a></li>
+          <li><a href="number-memory.html" class="nav-link">Number Memory</a></li>
+          <li><a href="color-stroop.html" class="nav-link active">Color Stroop</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button type="button" id="soundToggleBtn" class="icon-btn" aria-label="Toggle Sound" title="Sound Effects">
+          🔊
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- TOP ADVERTISEMENT SLOT -->
+  <div class="container ad-slot-wrapper">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-slot">
+      <span>⚡ Sponsor &amp; Partner Space (728x90)</span>
+      <span class="ad-slot-subtext">Reserved for Google AdSense Display Ads</span>
+    </div>
+  </div>
+
+  <main id="mainContent">
+
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-pill">
+          <span>🎨 Cognitive Interference Test</span>
+        </div>
+        <h1 class="hero-title">Color Stroop <span class="text-gradient">Clash</span></h1>
+        <p class="hero-subtitle">
+          Your brain wants to read the text, but you must <strong>match the ink color</strong>. Can your frontal lobe override your automatic reflexes?
+        </p>
+
+        <div class="quick-stats">
+          <div class="stat-pill">
+            <span>Personal Record:</span>
+            <strong id="heroBestScore">--</strong>
+          </div>
+          <div class="stat-pill">
+            <span>Games Played:</span>
+            <strong id="heroTotalGames">0</strong>
+          </div>
+          <div class="stat-pill">
+            <span>Rule:</span>
+            <span>Match the INK Color!</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME ARENA -->
+    <section class="game-section" aria-label="Color Stroop Arena">
+      <div class="container game-container">
+        
+        <div id="gameArena" class="game-arena state-idle" tabindex="0" role="region" aria-label="Color Stroop arena">
+          <div id="arenaIcon" class="arena-icon">🎨</div>
+          <h2 id="arenaTitle" class="arena-title">Color Stroop Clash</h2>
+          <p id="arenaDesc" class="arena-desc">Tap the button matching the INK COLOR of the word, NOT what the word spells! 20 rapid rounds.</p>
+          
+          <div id="arenaActions" class="arena-actions">
+            <!-- Populated by color-stroop.js -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- IN-CONTENT ADVERTISEMENT SLOT -->
+    <div class="container ad-slot-wrapper">
+      <span class="ad-label">Advertisement</span>
+      <div class="ad-slot">
+        <span>🎮 Brain Training &amp; Recommended Sponsors</span>
+        <span class="ad-slot-subtext">Reserved for Google AdSense Display Ads</span>
+      </div>
+    </div>
+
+    <!-- THE SCIENCE OF THE STROOP EFFECT -->
+    <section class="info-section">
+      <div class="container">
+        <h2 class="section-title">The Neuroscience of the Stroop Effect</h2>
+        <p class="section-subtitle">Discovered in 1935 by psychologist John Ridley Stroop, this is one of the most famous tests in experimental psychology.</p>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-step-num">1</div>
+            <h3 class="card-title">Automatic Word Reading</h3>
+            <p class="card-text">
+              Reading words is an automated subconscious process for literate humans. When you see the letters B-L-U-E, your brain decodes the meaning before you can even register what color the ink is.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-step-num">2</div>
+            <h3 class="card-title">Anterior Cingulate Cortex</h3>
+            <p class="card-text">
+              Resolving the conflict between the word meaning and the font color activates your <strong>Anterior Cingulate Cortex (ACC)</strong> and dorsolateral prefrontal cortex to suppress the incorrect automatic impulse.
+            </p>
+          </div>
+
+          <div class="card">
+            <div class="card-step-num">3</div>
+            <h3 class="card-title">Cognitive Flexibility</h3>
+            <p class="card-text">
+              High scores indicate high cognitive flexibility, fast selective attention, and superior working-memory filtering under time pressure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- VIRAL SHARE MODAL -->
+  <div id="shareModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalShareTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="modalShareTitle" class="modal-title">🎨 Dare Your Friends!</h3>
+        <button type="button" id="modalCloseBtn" class="modal-close" aria-label="Close dialog">&times;</button>
+      </div>
+      <p style="color: var(--text-secondary); font-size: 0.95rem;">
+        Send this challenge link to your friends and see if their brain can beat your score!
+      </p>
+
+      <div class="share-url-box">
+        <input type="text" id="shareInput" class="share-input" readonly aria-label="Challenge URL">
+        <button type="button" id="copyShareBtn" class="btn btn-primary">Copy</button>
+      </div>
+
+      <div class="share-networks">
+        <a id="shareWhatsApp" class="share-net-btn" target="_blank" rel="noopener noreferrer">
+          <span>💬</span>
+          <span>WhatsApp</span>
+        </a>
+        <a id="shareX" class="share-net-btn" target="_blank" rel="noopener noreferrer">
+          <span>🐦</span>
+          <span>Twitter / X</span>
+        </a>
+        <a id="shareTelegram" class="share-net-btn" target="_blank" rel="noopener noreferrer">
+          <span>✈️</span>
+          <span>Telegram</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="toastNotice" class="toast-notice" role="status" aria-live="polite">
+    <span>✅</span>
+    <span id="toastMsg">Copied to clipboard!</span>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-bottom" style="border-top: none;">
+      <p>&copy; 2026 ReflexRush. All rights reserved.</p>
+      <p>
+        <a href="index.html" class="footer-link">Reaction Time</a> &bull;
+        <a href="number-memory.html" class="footer-link">Number Memory</a> &bull;
+        <a href="about.html" class="footer-link">About</a> &bull;
+        <a href="privacy.html" class="footer-link">Privacy</a> &bull;
+        <a href="terms.html" class="footer-link">Terms</a>
+      </p>
+    </div>
+  </footer>
+
+  <script src="color-stroop.js"></script>
+</body>
+</html>
